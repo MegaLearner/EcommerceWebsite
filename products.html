@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ecommerce Website</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="images/logo.png" width="125px">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Account</a></li>
+                    <img src="images/cart.png" width="30px" height="30px">
+                </ul>
+            </nav>
+        </div>
+
+        <div class="search-bar " >
+            <input type="text" id="search" placeholder="Search products...">
+        </div>
+
+        <div class="small-container">
+            <h2 class="title">Featured Products</h2>
+            <div class="row" id="product-list">
+                <div class="col-4" data-name="Red T-shirt">
+                    <img src="images/product-1.jpg">
+                    <h4>Red T-shirt</h4>
+                    <p>$100.00</p>
+                </div>
+                <div class="col-4" data-name="Blue Jeans">
+                    <img src="images/product-2.jpg">
+                    <h4>Blue Jeans</h4>
+                    <p>$120.00</p>
+                </div>
+                <div class="col-4" data-name="Black Jacket">
+                    <img src="images/product-3.jpg">
+                    <h4>Black Jacket</h4>
+                    <p>$150.00</p>
+                </div>
+                <div class="col-4" data-name="White Sneakers">
+                    <img src="images/product-4.jpg">
+                    <h4>White Sneakers</h4>
+                    <p>$80.00</p>
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script>
+    
+        document.getElementById("search").addEventListener("input", function () {
+            let filter = this.value.toLowerCase();
+            let products = document.querySelectorAll("#product-list .col-4");
+            
+            products.forEach(product => {
+                let productName = product.getAttribute("data-name").toLowerCase();
+                if (productName.includes(filter)) {
+                    product.style.display = "block";
+                } else {
+                    product.style.display = "none";
+                }
+            });
+        });
+    </script>
+    <style>
+.search-bar{
+
+    text-align: center;
+  
+}
+.search-bar input{
+
+
+
+height: 50px;
+width: 200px;
+}
+
+
+    </style>
+</body>
+</html>
